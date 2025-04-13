@@ -2,6 +2,10 @@
 @import url('reset.scss');
 
 * {
-	background-color: beige;
 	font-family: 'Roboto', sans-serif;
+}
+
+.weatherImage {
+	width: 100px;
+	height: 100px;
 }

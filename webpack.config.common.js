@@ -12,6 +12,7 @@ module.exports = {
 		filename: '[name].[contenthash].js',
 		path: path.resolve(__dirname, BUILD_FOLDER),
 		clean: true,
+		assetModuleFilename: 'images/[hash][ext][query]',
 	},
 	plugins: [
 		new MiniCssExtractPlugin(),
@@ -46,6 +47,13 @@ module.exports = {
 			},
 			{
 				test: /\.(woff|woff2|eot|ttf|otf)$/i,
+				type: 'asset/resource',
+				generator: {
+					filename: 'fonts/[hash][ext][query]',
+				},
+			},
+			{
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				type: 'asset/resource',
 			},
 		],
