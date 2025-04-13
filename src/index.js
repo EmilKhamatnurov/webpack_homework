@@ -1,6 +1,6 @@
-import './index.css'
+import './app/styles/index.scss'
 
-const root = document.querySelector('#app')
+// const root = document.querySelector('#app')
 const weathers = document.querySelector('#weathers')
 
 const weathersList = [
