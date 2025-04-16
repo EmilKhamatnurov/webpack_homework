@@ -1,9 +1,9 @@
-const path = require('path')
-const CopyPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const BUILD_FOLDER = 'dist'
+const BUILD_FOLDER = 'dist';
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
@@ -76,4 +76,4 @@ module.exports = {
 			],
 		}),
 	],
-}
+};
