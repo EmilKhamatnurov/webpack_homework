@@ -1,13 +1,16 @@
+const setCardEventListener = weather => {};
+
 export function createWeatherCard(weather) {
 	if (!weather) {
 		return;
 	}
 	const item = document.createElement('li');
-	item.innerText = weather.name;
-	// Добавляем изображение
-	const weatherImage = document.createElement('img');
-	weatherImage.classList?.add('weatherImage');
-	weatherImage.src = weather.image;
+
+	// Добавляем класс для элемента
+	item.classList?.add('weather__card');
+	// Ставим фоновое изображение карты погоды
+	item.style.background = `url(${weather.image}) center center / cover no-repeat`;
+	setCardEventListener(weather);
 
 	// Добавляем аудио
 	const weatherAudio = document.createElement('audio');
@@ -15,8 +18,10 @@ export function createWeatherCard(weather) {
 
 	// Добавляем иконку
 	const weatherIcon = document.createElement('img');
-	weatherIcon.classList?.add('weatherImage');
+	// Задаем изобраджение иконки
 	weatherIcon.src = weather.icon;
+	// Добавляем класс для иконки
+	weatherIcon.classList?.add('weather__icon');
 
 	// Добавляем элементы
 	item.appendChild(weatherAudio);

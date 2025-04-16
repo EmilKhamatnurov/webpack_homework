@@ -2,9 +2,7 @@ import { weathersList } from './app/data/weatherData';
 import { createWeatherCard } from './app/func/createWeatherCard';
 import './app/styles/index.scss';
 
-const root = document.querySelector('#app');
-
-const weathers = document.querySelector('#weathers');
+const weathers = document.querySelector('.weather__cards');
 
 weathersList.forEach(weather => {
 	const weatherCard = createWeatherCard(weather);
