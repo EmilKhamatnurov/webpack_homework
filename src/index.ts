@@ -9,16 +9,19 @@ const weathers = document.querySelector(".weather__cards");
 // Переключатель громкости
 const volumeInput = document.querySelector(".volume__input");
 
-// Создаем карточки состояний погоды
-weathersList.forEach(weather => {
-	const weatherCard = createWeatherCard(weather);
-	weathers.appendChild(weatherCard);
-});
+if (weathers) {
+	// Создаем карточки состояний погоды
+	weathersList.forEach(weather => {
+		const weatherCard = createWeatherCard(weather);
+		weathers.appendChild(weatherCard);
+	});
+}
 
 // Аудио на странице
 const weatherSounds = document.querySelectorAll("audio");
-
-//Обработчик события для
-volumeInput.addEventListener("change", e =>
-	handleChangeVolume(e, weatherSounds)
-);
+if (volumeInput) {
+	//Обработчик события для
+	volumeInput.addEventListener("change", e =>
+		handleChangeVolume(e, weatherSounds)
+	);
+}

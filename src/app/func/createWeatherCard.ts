@@ -1,12 +1,21 @@
+import { IWeathersList } from '../data/weatherData';
+
 /**
  * Функция создания событий для карточек погоды
  * @param {HTMLElement} weather
  * @param {object} weatherData
  */
-const setCardEventListener = (weather, weatherData, weatherSoundElement) => {
+const setCardEventListener = (
+	weather: HTMLLIElement,
+	weatherData: IWeathersList,
+	weatherSoundElement: HTMLAudioElement): void => {
+
+	// Добавляем обработчик события
 	weather.addEventListener("click", () => {
-		const backgroundElement = document.querySelector(".background__image");
-		backgroundElement.style.background = `url(${weatherData.image}) center center / cover no-repeat`;
+		const backgroundElement = document.querySelector(".background__image") as HTMLElement;
+		if (backgroundElement) {
+			backgroundElement.style.background = `url(${weatherData.image}) center center / cover no-repeat`;
+		}
 
 		const currentSound = localStorage.getItem("currentSound");
 
@@ -39,10 +48,7 @@ const setCardEventListener = (weather, weatherData, weatherSoundElement) => {
  * @param {object[]} weather - массив данных для карточек погоды
  * @returns {HTMLElement}
  */
-export function createWeatherCard(weather) {
-	if (!weather) {
-		return;
-	}
+export function createWeatherCard(weather: IWeathersList): Node {
 
 	const item = document.createElement("li");
 	// Добавляем класс для элемента
