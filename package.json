@@ -32,12 +32,16 @@
 		"style-loader": "^4.0.0",
 		"svgo": "^3.3.2",
 		"terser-webpack-plugin": "^5.3.14",
+		"ts-loader": "^9.5.2",
+		"ts-node": "^10.9.2",
 		"webpack": "^5.99.5",
 		"webpack-cli": "^6.0.1",
 		"webpack-dev-server": "^5.2.1"
 	},
 	"dependencies": {
+		"@types/node": "^22.15.14",
 		"postcss-preset-env": "^10.1.5",
+		"typescript": "^5.8.3",
 		"webpack-merge": "^6.0.1"
 	}
 }

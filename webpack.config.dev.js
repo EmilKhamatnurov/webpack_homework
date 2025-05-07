@@ -1,11 +1,11 @@
-const { merge } = require('webpack-merge');
-const commonConfig = require('./webpack.config.common');
-const ESLintPlugin = require('eslint-webpack-plugin');
-const path = require('path');
+const { merge } = require("webpack-merge");
+const commonConfig = require("./webpack.config.common");
+const ESLintPlugin = require("eslint-webpack-plugin");
+const path = require("path");
 
 module.exports = merge(commonConfig, {
-	mode: 'development',
-	devtool: 'inline-source-map',
+	mode: "development",
+	devtool: "inline-source-map",
 	devServer: {
 		port: 3000,
 		hot: true,
@@ -13,7 +13,7 @@ module.exports = merge(commonConfig, {
 	},
 	plugins: [
 		new ESLintPlugin({
-			extensions: ['js', 'jsx'],
+			extensions: ["js", "jsx"],
 		}),
 	],
 });

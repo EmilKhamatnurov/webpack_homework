@@ -7,7 +7,7 @@ const BUILD_FOLDER = "dist";
 
 module.exports = {
 	context: path.resolve(__dirname, "src"),
-	entry: "./index.js",
+	entry: "./index.ts",
 	output: {
 		filename: "[name].[contenthash].js",
 		path: path.resolve(__dirname, BUILD_FOLDER),
@@ -60,6 +60,11 @@ module.exports = {
 					filename: "files/audio/[name][ext]",
 				},
 			},
+			{
+				test: /\.ts$/,
+				use: "ts-loader",
+				exclude: /node_modules/,
+			},
 		],
 	},
 	plugins: [
@@ -76,4 +81,7 @@ module.exports = {
 			],
 		}),
 	],
+	resolve: {
+		extensions: [".ts", ".js"],
+	},
 };
