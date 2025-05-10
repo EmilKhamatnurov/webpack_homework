@@ -1,4 +1,4 @@
-import { IWeathersList } from '../data/weatherData';
+import { WeathersList } from '../data/weatherData';
 
 /**
  * Функция создания событий для карточек погоды
@@ -7,10 +7,8 @@ import { IWeathersList } from '../data/weatherData';
  */
 const setCardEventListener = (
 	weather: HTMLLIElement,
-	weatherData: IWeathersList,
+	weatherData: WeathersList,
 	weatherSoundElement: HTMLAudioElement): void => {
-
-	// Добавляем обработчик события
 	weather.addEventListener("click", () => {
 		const backgroundElement = document.querySelector(".background__image") as HTMLElement;
 		if (backgroundElement) {
@@ -18,9 +16,6 @@ const setCardEventListener = (
 		}
 
 		const currentSound = localStorage.getItem("currentSound");
-
-		// Если нажали на неактивную карточку погоды, то играется другой звук
-		// При этом все звуки сбрасываются
 		if (weatherData.name !== currentSound) {
 			document.querySelectorAll("audio").forEach(sound => {
 				sound.currentTime = 0;
@@ -31,7 +26,6 @@ const setCardEventListener = (
 			return;
 		}
 
-		// Если нажали на активную карточку погоды, то звук ставится на паузу или проигрывается
 		if (
 			weatherData.name === currentSound &&
 			weatherSoundElement.paused === true
@@ -48,31 +42,22 @@ const setCardEventListener = (
  * @param {object[]} weather - массив данных для карточек погоды
  * @returns {HTMLElement}
  */
-export function createWeatherCard(weather: IWeathersList): Node {
+export function createWeatherCard(weather: WeathersList): Node {
 
 	const item = document.createElement("li");
-	// Добавляем класс для элемента
 	item.classList?.add("weather__card");
-	// Ставим фоновое изображение карты погоды
 	item.style.background = `url(${weather.image}) center center / cover no-repeat`;
 
-	// Добавляем аудио
 	const weatherSound = document.createElement("audio");
 	weatherSound.src = weather.audio;
 	weatherSound.dataset.weather = weather.name;
 
-	// Добавляем иконку
 	const weatherIcon = document.createElement("img");
-	// Задаем изображение иконки
 	weatherIcon.src = weather.icon;
-	// Добавляем класс для иконки
 	weatherIcon.classList?.add("weather__icon");
-
-	// Добавляем элементы
 	item.appendChild(weatherSound);
 	item.appendChild(weatherIcon);
 
-	// Добавляем обработчики события для карты погоды
 	setCardEventListener(item, weather, weatherSound);
 
 	return item;

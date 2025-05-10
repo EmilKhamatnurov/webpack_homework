@@ -17,7 +17,7 @@ type StateNames = {
 	readonly RAINY: "Rainy";
 };
 
-export interface IWeathersList {
+export interface WeathersList {
 	name: (typeof stateNames)[keyof typeof stateNames];
 	image: any;
 	audio: any;
@@ -32,7 +32,7 @@ export const stateNames: StateNames = {
 };
 
 /** Список данных разных состояний погоды */
-export const weathersList: IWeathersList[] = [
+export const weathersList: WeathersList[] = [
 	{
 		name: stateNames.SUMMER,
 		image: summerImage,
